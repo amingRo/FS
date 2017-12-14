@@ -1,17 +1,8 @@
-# Vue.js 组件编码规范
-
-> 这个 [链接](https://github.com/sqrthree/vuejs-component-style-guide/compare/master...pablohpsilva:master) 用来查看本翻译与英文版是否有差别（如果你没有看到 README.md 发生变化，那就意味着这份翻译文档是最新的）。
+# ES6代码规范
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/pablohpsilva/vuejs-component-style-guide/master/img/logo.png"/>
 </p>
-
-### 其它语言
-* [英文](https://pablohpsilva.github.io/vuejs-component-style-guide/#/)
-* [葡萄牙语](https://pablohpsilva.github.io/vuejs-component-style-guide/#/portuguese)
-* [日本](https://pablohpsilva.github.io/vuejs-component-style-guide/#/japanese)
-* [韩语](https://pablohpsilva.github.io/vuejs-component-style-guide/#/korean)
-* [俄语](https://pablohpsilva.github.io/vuejs-component-style-guide/#/russian)
 
 ## 目标
 
@@ -22,27 +13,23 @@
 * 更容易使用现有的工具
 * 更容易实现缓存以及代码包的分拆
 
-本指南为 [De Voorhoede](https://github.com/voorhoede) 参考 [RiotJS 编码规范](https://github.com/voorhoede/riotjs-style-guide) 而写。
+本指南参考 [RiotJS 编码规范]() 而写。
 
 ## 目录
 
-* [基于模块开发](#基于模块开发)
-* [vue 组件命名](#vue-组件命名)
-* [组件表达式简单化](#组件表达式简单化)
-* [组件 props 原子化](#组件-props-原子化)
-* [验证组件的 props](#验证组件的-props)
-* [将 `this` 赋值给 `component` 变量](#将-this-赋值给-component-变量)
-* [组件结构化](#组件结构化)
-* [组件事件命名](#组件事件命名)
-* [避免 `this.$parent`](#避免-this.$parent)
-* [谨慎使用 `this.$refs`](#谨慎使用-this.$refs)
-* [使用组件名作为样式作用域空间](#使用组件名作为样式作用域空间)
-* [提供组件 API 文档](#提供组件-api-文档)
-* [提供组件 demo](#提供组件-demo)
-* [对组件文件进行代码校验](#对组件文件进行代码校验)
-* [只在需要时创建组件](#只在需要时创建组件)
-<!-- * [使用 `*.vue` 扩展名](#使用-vue-后缀作为扩展名) -->
-<!-- * [为你的项目添加徽章标识](#为你的项目添加徽章标识) -->
+* [引用](#引用)
+* [对象](#对象)
+* [数组](#数组)
+* [函数](#函数)
+* [箭头函数](#箭头函数)
+* [构造器](#构造器)
+* [模块](#模块)
+* [Iterators and Generators](#Iterators and Generators)
+* [变量](#变量)
+* [提升](#提升)
+* [比较运算符 & 等号](#比较运算符 & 等号)
+* [注释](#注释)
+* [空白](#空白)
 
 ## 基于模块开发
 
