@@ -50,7 +50,7 @@ const b = 2;
 ```
 
 ### 如果一定需要可变动的引用，使用 let 代替 var。
-*因为 let 是块级作用域，而 var 是函数作用域。
+因为 let 是块级作用域，而 var 是函数作用域。
 ```html
 // bad
 var count = 1;
@@ -69,49 +69,86 @@ if (true) {
 
 ## 对象
 
-Vue.js 的表达式是 100% 的 Javascript 表达式。这使得其功能性很强大，但也带来潜在的复杂性。因此，你应该尽量**保持表达式的简单化**。
-
-### 为什么？
-
-* 复杂的行内表达式难以阅读。
-* 行内表达式是不能够通用的，这可能会导致重复编码的问题。
-* IDE 基本上不能识别行内表达式语法，所以使用行内表达式 IDE 不能提供自动补全和语法校验功能。
-
-### 怎么做？
-
-如果你发现写了太多复杂并难以阅读的行内表达式，那么可以使用 method 或是 computed 属性来替代其功能。
+### 使用字面值创建对象。
 
 ```html
-<!-- 推荐 -->
-<template>
-  <h1>
-    {{ `${year}-${month}` }}
-  </h1>
-</template>
-<script type="text/javascript">
-  export default {
-    computed: {
-      month() {
-        return this.twoDigits((new Date()).getUTCMonth() + 1);
-      },
-      year() {
-        return (new Date()).getUTCFullYear();
-      }
-    },
-    methods: {
-      twoDigits(num) {
-        return ('0' + num).slice(-2);
-      }
-    },
-  };
-</script>
+// bad
+const item = new Object();
 
-<!-- 避免 -->
-<template>
-  <h1>
-    {{ `${(new Date()).getUTCFullYear()}-${('0' + ((new Date()).getUTCMonth()+1)).slice(-2)}` }}
-  </h1>
-</template>
+// good
+const item = {};
+```
+
+### 使用对象方法的简写。
+```html
+// bad
+const atom = {
+  value: 1,
+
+  addValue: function (value) {
+    return atom.value + value;
+  },
+};
+
+// good
+const atom = {
+  value: 1,
+
+  addValue(value) {
+    return atom.value + value;
+  },
+};
+```
+### 使用对象属性值的简写。
+这样更短更有描述性。
+
+```html
+const lukeSkywalker = 'Luke Skywalker';
+
+// bad
+const obj = {
+  lukeSkywalker: lukeSkywalker,
+};
+
+// good
+const obj = {
+  lukeSkywalker,
+};
+```
+### 不要直接调用 Object.prototype 的方法，如：hasOwnProperty, propertyIsEnumerable, 和 isPrototypeOf
+
+```html
+// bad
+console.log(object.hasOwnProperty(key));
+
+// good
+console.log(Object.prototype.hasOwnProperty.call(object, key));
+
+// best
+const has = Object.prototype.hasOwnProperty; // cache the lookup once, in module scope.
+/* or */
+const has = require('has');
+…
+console.log(has.call(object, key));
+```
+
+### 浅拷贝对象的时候最好是使用 … 操作符而不是 Object.assign
+
+```html
+// very bad
+const original = { a: 1, b: 2 };
+const copy = Object.assign(original, { c: 3 }); // this mutates `original`
+delete copy.a; // so does this
+
+// bad
+const original = { a: 1, b: 2 };
+const copy = Object.assign({}, original, { c: 3 }); // copy => { a: 1, b: 2, c: 3 }
+
+// good
+const original = { a: 1, b: 2 };
+const copy = { ...original, c: 3 }; // copy => { a: 1, b: 2, c: 3 }
+
+const { a, ...noA } = copy; // noA => { b: 2, c: 3 }
 ```
 
 [↑ 回到目录](#目录)
