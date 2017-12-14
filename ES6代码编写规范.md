@@ -1,7 +1,7 @@
 # ES6代码规范
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/pablohpsilva/vuejs-component-style-guide/master/img/logo.png"/>
+  <img src="http://coenraets.org/present/es6/img/js.png"/>
 </p>
 
 ## 目标
