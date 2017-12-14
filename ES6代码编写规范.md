@@ -24,7 +24,7 @@
 * [箭头函数](#箭头函数)
 * [构造器](#构造器)
 * [模块](#模块)
-* [[注意 Iterators and Generators](#[注意 Iterators and Generators)
+* [注意 Iterators and Generators](#[注意 Iterators and Generators)
 * [变量](#变量)
 * [提升](#提升)
 * [比较运算符](#比较运算符)
