@@ -6,12 +6,6 @@
   <img src="https://raw.githubusercontent.com/pablohpsilva/vuejs-component-style-guide/master/img/logo.png"/>
 </p>
 
-### 其它语言
-* [英文](https://pablohpsilva.github.io/vuejs-component-style-guide/#/)
-* [葡萄牙语](https://pablohpsilva.github.io/vuejs-component-style-guide/#/portuguese)
-* [日本](https://pablohpsilva.github.io/vuejs-component-style-guide/#/japanese)
-* [韩语](https://pablohpsilva.github.io/vuejs-component-style-guide/#/korean)
-* [俄语](https://pablohpsilva.github.io/vuejs-component-style-guide/#/russian)
 
 ## 目标
 
